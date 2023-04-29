@@ -4,11 +4,11 @@ const fs = require('fs');
 const provider = new ethers.providers.JsonRpcProvider('https://arb1.arbitrum.io/rpc');
 const wallet = new ethers.Wallet('0x' + fs.readFileSync('PrivateKey.txt').toString(), provider);
 
-const bridgeContract = '0x0A9f824C05A74F577A536A8A0c673183a872Dff4';
+const bridgeContract = '0x0A9f824C05A74F577A536A8A0c673183a872Dff4'; // bridge contract address on arbitrum
 const bridgeAbi = JSON.parse(fs.readFileSync('bridgeAbi.json').toString());
 const bridge = new ethers.Contract(bridgeContract, bridgeAbi, wallet);
 
-const oftContract = '0xdD69DB25F6D620A7baD3023c5d32761D353D3De9'; 
+const oftContract = '0xdD69DB25F6D620A7baD3023c5d32761D353D3De9'; // GETH token address on arbitrum
 const oftAbi = JSON.parse(fs.readFileSync('oftAbi.json').toString());
 const oft = new ethers.Contract(oftContract, oftAbi, wallet);
 
